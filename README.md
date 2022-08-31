@@ -106,3 +106,8 @@
 
 #### 反馈交流
 - QQ交流群：一群：<strike>891137268</strike> 、二群：<strike>947578238</strike>、三群：659622532
+
+#### 整合后下载链接
+- 自己的GitHub上下载，默认分支为master分支，且为原版本；其中main分支为当前开发优化中的版本，
+  前端：https://github.com/sparkle-summer/vue_springboot-web.git
+  后端：
