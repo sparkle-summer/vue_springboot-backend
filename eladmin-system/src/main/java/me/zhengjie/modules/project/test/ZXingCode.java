@@ -1,4 +1,4 @@
-package me.zhengjie.test;
+package me.zhengjie.modules.project.test;
 
 import cn.hutool.extra.qrcode.BufferedImageLuminanceSource;
 import com.google.zxing.*;

@@ -1,4 +1,4 @@
-package me.zhengjie.common;
+package me.zhengjie.modules.project.common;
 
 import java.text.DecimalFormat;
 

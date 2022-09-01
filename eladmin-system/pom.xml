@@ -2,15 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- 指定我们的父工程, test-demo，这个地方是没有<relativePath/>它的  -->
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>eladmin</artifactId>
         <groupId>me.zhengjie</groupId>
         <version>2.6</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
-
     <artifactId>eladmin-system</artifactId>
     <name>核心模块</name>
+    <description>项目入口，核心包</description>
 
     <properties>
         <jjwt.version>0.11.2</jjwt.version>
@@ -86,6 +87,21 @@
             <artifactId>oshi-core</artifactId>
             <version>6.1.4</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>qrcode-utils</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4.15</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version>
+        </dependency>
     </dependencies>
 
     <!-- 打包 -->
@@ -104,5 +120,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <!-- fw 20220901 生成jar包的名称 -->
+        <finalName>jiamu-system</finalName>
     </build>
 </project>

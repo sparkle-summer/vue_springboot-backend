@@ -2,31 +2,34 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- Maven模型的版本号 -->
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>me.zhengjie</groupId>
-    <artifactId>eladmin</artifactId>
-    <packaging>pom</packaging>
-    <version>2.6</version>
-
-    <modules>
-        <module>eladmin-common</module>
-        <module>eladmin-logging</module>
-        <module>eladmin-system</module>
-        <module>eladmin-tools</module>
-        <module>eladmin-generator</module>
-        <module>eladmin-project</module>
-    </modules>
-
-    <name>ELADMIN 后台管理</name>
-    <url>https://eladmin.vip</url>
-
+    <!-- Spring Boot的父级依赖 参考:https://segmentfault.com/a/1190000018854658 -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.6.4</version>
+        <!-- 设定一个空值将始终从仓库中获取，不从本地路径获取 ,此配置也可以不需要-->
+        <relativePath/>
     </parent>
 
+    <!-- 项目基础信息配置 -->
+    <!-- 组织名 -->
+    <groupId>me.zhengjie</groupId>
+    <!-- 项目名称 -->
+    <artifactId>eladmin</artifactId>
+    <!-- 指定全局版本号 ,案例：0.0.1-SNAPSHOT-->
+    <version>2.6</version>
+    <!-- 项目别名 -->
+    <name>JIAMU 后台管理</name>
+    <!-- 指定项目产品的跳转链接-->
+    <url>https://jmadmin.vip</url>
+    <!-- 指定父工程打包方式:pom-->
+    <packaging>pom</packaging>
+    <!-- 项目描述-->
+    <description>Management Source Demo project for Spring Boot</description>
+
+    <!-- 指定版本，对应的包可以通过这种方式获取版本，便于版本的统一管理 <version>${java.version}</version> -->
     <properties>
         <log4j2.version>2.17.0</log4j2.version>
         <logback.version>1.2.9</logback.version>
@@ -41,6 +44,17 @@
         <mapstruct.version>1.4.2.Final</mapstruct.version>
     </properties>
 
+    <!-- 指定子项目模块 -->
+    <modules>
+        <module>eladmin-common</module>
+        <module>eladmin-logging</module>
+        <module>eladmin-system</module>
+        <module>eladmin-tools</module>
+        <module>eladmin-generator</module>
+        <module>eladmin-project</module>
+    </modules>
+
+    <!-- 添加项目依赖部分 -->
     <dependencies>
         <!--Spring boot 核心-->
         <dependency>
@@ -52,7 +66,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-
         </dependency>
 
         <!--Spring boot 测试-->
@@ -106,7 +119,6 @@
             <artifactId>knife4j-spring-boot-starter</artifactId>
             <version>3.0.3</version>
         </dependency>
-
 
         <!--Mysql依赖包-->
         <dependency>
@@ -208,6 +220,7 @@
     </build>
 
     <repositories>
+        <!-- 配置阿里依赖仓库地址 -->
         <repository>
             <id>public</id>
             <name>aliyun nexus</name>
@@ -219,6 +232,7 @@
     </repositories>
 
     <pluginRepositories>
+        <!-- 配置阿里依赖仓库地址配置 -->
         <pluginRepository>
             <id>public</id>
             <name>aliyun nexus</name>
@@ -231,4 +245,33 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+
+    <!-- fw 20220901 环境切换配置. 如果有几百个子工程,每个工程所需的环境都不一样,就需要单独进行配置. 右边Maven Profiles进行选择当前的环境 ,一下部分均为新增部分-->
+    <profiles>
+        <profile>
+            <!-- 本地开发环境 -->
+            <id>dev</id>
+            <properties>
+                <profiles.active>dev</profiles.active>
+            </properties>
+            <!-- 默认本地环境-->
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <!-- 线上运行环境 -->
+            <id>prod</id>
+            <properties>
+                <profiles.active>prod</profiles.active>
+            </properties>
+        </profile>
+        <profile>
+            <!-- 测试环境 -->
+            <id>test</id>
+            <properties>
+                <profiles.active>test</profiles.active>
+            </properties>
+        </profile>
+    </profiles>
 </project>

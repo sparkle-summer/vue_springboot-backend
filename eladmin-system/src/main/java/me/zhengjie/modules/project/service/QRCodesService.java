@@ -1,4 +1,4 @@
-package me.zhengjie.service;
+package me.zhengjie.modules.project.service;
 
 import org.springframework.stereotype.Service;
 

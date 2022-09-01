@@ -1,4 +1,4 @@
-package me.zhengjie.reset;
+package me.zhengjie.modules.project.reset;
 
 import javax.servlet.http.HttpServletResponse;
 

@@ -1,4 +1,4 @@
-package me.zhengjie.test;
+package me.zhengjie.modules.project.test;
 
 import com.alibaba.fastjson.JSONObject;
 //import com.drew.imaging.ImageMetadataReader;
@@ -6,10 +6,9 @@ import com.alibaba.fastjson.JSONObject;
 //import com.drew.metadata.Directory;
 //import com.drew.metadata.Metadata;
 //import com.drew.metadata.Tag;
-import me.zhengjie.utils.HttpUtils;
+import me.zhengjie.modules.project.utils.HttpUtils;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.File;
 import java.io.IOException;
 
 /**

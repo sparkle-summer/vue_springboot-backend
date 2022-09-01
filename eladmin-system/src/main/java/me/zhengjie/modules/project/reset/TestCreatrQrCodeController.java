@@ -1,8 +1,8 @@
-package me.zhengjie.reset;
+package me.zhengjie.modules.project.reset;
 
 import com.google.zxing.BarcodeFormat;
-import me.zhengjie.test.ZXingCode;
-import me.zhengjie.utils.CreateSelfQRUtils;
+import me.zhengjie.modules.project.utils.CreateSelfQRUtils;
+import me.zhengjie.modules.project.test.ZXingCode;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

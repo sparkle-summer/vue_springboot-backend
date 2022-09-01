@@ -1,4 +1,4 @@
-package me.zhengjie.utils;
+package me.zhengjie.modules.project.utils;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpEntity;
@@ -20,7 +20,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 /**
- * @ProjectName: yshopmall_hd
+ * @ProjectName: jiamu
  * @Package: com.jiamu
  * @ClassName: HttpUtils
  * @Author: fengwen

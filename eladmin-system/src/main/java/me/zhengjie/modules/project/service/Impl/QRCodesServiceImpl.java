@@ -1,4 +1,4 @@
-package me.zhengjie.service.Impl;
+package me.zhengjie.modules.project.service.Impl;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
@@ -7,7 +7,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import lombok.extern.slf4j.Slf4j;
-import me.zhengjie.service.QRCodesService;
+import me.zhengjie.modules.project.service.QRCodesService;
 import org.springframework.stereotype.Service;
 
 import javax.imageio.ImageIO;

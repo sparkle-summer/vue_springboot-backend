@@ -1,4 +1,4 @@
-package me.zhengjie.utils;
+package me.zhengjie.modules.project.utils;
 
 import com.github.binarywang.utils.qrcode.MatrixToImageWriter;
 import com.google.zxing.BarcodeFormat;

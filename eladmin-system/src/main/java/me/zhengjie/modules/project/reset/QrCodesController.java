@@ -1,12 +1,12 @@
-package me.zhengjie.reset;
+package me.zhengjie.modules.project.reset;
 
-import lombok.RequiredArgsConstructor;
-import me.zhengjie.domain.dto.QrcodesDto;
-import me.zhengjie.service.QRCodesService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
+import me.zhengjie.modules.project.domain.dto.QrcodesDto;
+import me.zhengjie.modules.project.service.QRCodesService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,7 +18,7 @@ import java.io.OutputStream;
 import java.util.Map;
 
 /**
- * @ProjectName: Bhopal_hd
+ * @ProjectName: jiamu
  * @Package: com.jiamu.Controller
  * @ClassName: QRecodeController
  * @Author: fengwen
@@ -30,17 +30,18 @@ import java.util.Map;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/qrCode2")
-@Api(tags = "生成二维码")
+@Api(tags = "工具：生成二维码")
 public class QrCodesController {
 
-    private final QRCodesService qrCodeService;
+    private final QRCodesService qrCodeService;  // 由于使用了RequiredArgsConstructor构造器，因此不必在使用Resource 或 Autoware 注入，注意当前注入方式需要添加修饰符final
 
     /**
      * 请求方式传入参数,post请求方式一
      * @param request 请求参数
      * @param response 响应参数
      */
-    @RequestMapping(value="/generateQrCodeReq",method=RequestMethod.POST)
+    @ApiOperation("创建常规二维码")        // swagger封装用于自动获取API
+    @PostMapping(value = "/generateQrCodeReq") //路由
     public void generateQrCodeReq(HttpServletRequest request, HttpServletResponse response){
         System.out.println(request);
         try {
@@ -85,6 +86,7 @@ public class QrCodesController {
      * @param qrcodeDto 请求参数
      * @param response  响应参数
      */
+    @ApiOperation("创建二维码-实体类方式")        // swagger封装用于自动获取API
     @PostMapping(value="generateQrCodeDto")
     public void generateQrCodeDto(@RequestBody QrcodesDto qrcodeDto, HttpServletResponse response){
         try {
@@ -132,7 +134,7 @@ public class QrCodesController {
      * @param qrLogoFile 二维码传入logo图片文件流方式传入
      * @param response 响应参数
      */
-    @ApiOperation("创建二维码")        // swagger封装用于自动获取API
+    @ApiOperation("创建个性logo二维码2")        // swagger封装用于自动获取API
     @PostMapping(value="generateQrCodeLogo")
     public void generateQrCodeLogo(@RequestParam Map<String,String> reqMap, @RequestParam("qrLogoFile") MultipartFile qrLogoFile, HttpServletResponse response){
 

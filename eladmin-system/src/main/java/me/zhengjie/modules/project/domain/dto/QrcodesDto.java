@@ -1,4 +1,4 @@
-package me.zhengjie.domain.dto;
+package me.zhengjie.modules.project.domain.dto;
 
 import lombok.Data;
 
