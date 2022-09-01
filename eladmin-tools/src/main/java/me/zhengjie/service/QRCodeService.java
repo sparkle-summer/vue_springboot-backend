@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * @ProjectName: test_demo
+ * @ProjectName: jiamu
  * @Package: com.jiamu.service
  * @ClassName: QRcodeUtils
  * @Author: fengwen

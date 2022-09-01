@@ -3,7 +3,7 @@ package me.zhengjie.service.dto;
 import lombok.Data;
 
 /**
- * @ProjectName: yshopmall_hd
+ * @ProjectName: jiamu
  * @Package: com.jiamu.dto.qrcode
  * @ClassName: QrcodeDto
  * @Author: fengwen

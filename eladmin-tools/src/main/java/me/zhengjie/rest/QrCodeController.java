@@ -20,7 +20,7 @@ import java.io.OutputStream;
 import java.util.Map;
 
 /**
- * @ProjectName: test
+ * @ProjectName: jiamu
  * @Package: com.jiamu.Controller
  * @ClassName: QRecodeController
  * @Author: fengwen

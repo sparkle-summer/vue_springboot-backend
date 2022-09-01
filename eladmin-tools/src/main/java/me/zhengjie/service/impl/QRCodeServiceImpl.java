@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @ProjectName: test
+ * @ProjectName: jiamu
  * @Package: com.jiamu.service.Impl
  * @ClassName: QRcodeServiceImpl
  * @Author: fengwen
