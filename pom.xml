@@ -15,7 +15,7 @@
 
     <!-- 项目基础信息配置 -->
     <!-- 组织名 -->
-    <groupId>me.zhengjie</groupId>
+    <groupId>com.jiamu</groupId>
     <!-- 项目名称 -->
     <artifactId>eladmin</artifactId>
     <!-- 指定全局版本号 ,案例：0.0.1-SNAPSHOT-->
@@ -51,7 +51,6 @@
         <module>eladmin-system</module>
         <module>eladmin-tools</module>
         <module>eladmin-generator</module>
-        <module>eladmin-project</module>
     </modules>
 
     <!-- 添加项目依赖部分 -->

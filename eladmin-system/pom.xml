@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>eladmin</artifactId>
-        <groupId>me.zhengjie</groupId>
+        <groupId>com.jiamu</groupId>
         <version>2.6</version>
     </parent>
     <artifactId>eladmin-system</artifactId>
@@ -22,12 +22,12 @@
     <dependencies>
         <!-- 代码生成模块 -->
         <dependency>
-            <groupId>me.zhengjie</groupId>
+            <groupId>com.jiamu</groupId>
             <artifactId>eladmin-generator</artifactId>
             <version>2.6</version>
             <exclusions>
                 <exclusion>
-                    <groupId>me.zhengjie</groupId>
+                    <groupId>com.jiamu</groupId>
                     <artifactId>eladmin-common</artifactId>
                 </exclusion>
             </exclusions>
@@ -35,7 +35,7 @@
 
         <!-- tools 模块包含了 common 和 logging 模块 -->
         <dependency>
-            <groupId>me.zhengjie</groupId>
+            <groupId>com.jiamu</groupId>
             <artifactId>eladmin-tools</artifactId>
             <version>2.6</version>
         </dependency>
@@ -101,6 +101,10 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.5.13</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
         </dependency>
     </dependencies>
 
