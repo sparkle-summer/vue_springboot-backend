@@ -51,7 +51,6 @@
         <module>eladmin-system</module>
         <module>eladmin-tools</module>
         <module>eladmin-generator</module>
-        <module>eladmin-project</module>
     </modules>
 
     <!-- 添加项目依赖部分 -->
