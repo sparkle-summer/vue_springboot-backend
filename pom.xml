@@ -42,6 +42,9 @@
         <druid.version>1.2.8</druid.version>
         <commons-pool2.version>2.11.1</commons-pool2.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
+
+        <jdk.version>1.8</jdk.version>
+        <java.home>G:\developTool\Java\jdk1.8.0_121</java.home>
     </properties>
 
     <!-- 指定子项目模块 -->
@@ -214,7 +217,24 @@
                 <configuration>
                     <skip>true</skip>
                 </configuration>
+
             </plugin>
+            <!-- 打包时引入jdk1.8,主要针对二维码图片功能 fengwen 2022年9月2日16:32:29-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <compilerArguments>
+                        <verbose />
+                        <bootclasspath>${java.home}\jre\lib\rt.jar;${java.home}\jre\lib\jce.jar</bootclasspath>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
