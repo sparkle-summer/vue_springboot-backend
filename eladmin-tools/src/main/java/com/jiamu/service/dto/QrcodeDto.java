@@ -16,6 +16,7 @@ public class QrcodeDto {
     private String userId	;// 用户ID
     private String userNm	;// 用户名称
     private String mobile	;// 手机号
+    private String remark	;// 备注描述
     private String prodType ;// 产品类型
     private String qrColor  ;// 二维码颜色
 }

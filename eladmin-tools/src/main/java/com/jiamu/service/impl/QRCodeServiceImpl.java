@@ -83,6 +83,7 @@ public class QRCodeServiceImpl implements QRCodeService {
             LOGGER.error("", e);
         }
         // 将最终生成的二维码图片覆盖原始的图片文件
+        assert matrix != null;
         proc(matrix, stream, frontColor, logoFile, logoSteam);
     }
 
@@ -212,41 +213,50 @@ public class QRCodeServiceImpl implements QRCodeService {
         int whitecolor = 0xffffffff;
         for (int x = 0; x < IMGWIDTH; x++) {
             for (int y = 0; y < IMGWIDTH; y++) {
-                if(x<r&&y<r&&((r-x)*(r-x)+(r-y)*(r-y)>(r-1)*(r-1))){
+                int i = (r - x) * (r - x) + (r - y) * (r - y);
+                if(x<r&&y<r&&(i >(r-1)*(r-1))){
                     // 左上圆角
-                    if((r-x)*(r-x)+(r-y)*(r-y)>r*r){
+                    if(i >r*r){
                         src[x][y] = whitecolor;
                     } else {
-                        src[x][y] = bordercolor;
-                    }
-                } else if (x>(max-r)&&y<r&&(x+r-max)*(x+r-max)+(r-y)*(r-y)>(r-1)*(r-1)){
-                    // 右上圆角
-                    if((x+r-max)*(x+r-max)+(r-y)*(r-y)>r*r){
-                        src[x][y] = whitecolor;
-                    }else{
-                        src[x][y] = bordercolor;
-                    }
-                } else if (x<r&&y>(max-r)&&(r-x)*(r-x)+(y+r-max)*(y+r-max)>(r-1)*(r-1)){
-                    // 左下圆角
-                    if((r-x)*(r-x)+(y+r-max)*(y+r-max)>r*r){
-                        src[x][y] = whitecolor;
-                    }else{
-                        src[x][y] = bordercolor;
-                    }
-                } else if (x>(max-r)&&y>(max-r)&&(x+r-max)*(x+r-max)+(y+r-max)*(y+r-max)>(r-1)*(r-1)){
-                    // 右下圆角
-                    if((x+r-max)*(x+r-max)+(y+r-max)*(y+r-max)>r*r){
-                        src[x][y] = whitecolor;
-                    }else{
                         src[x][y] = bordercolor;
                     }
                 } else {
-                    if(((x>=r && x<=max-r) && (y==0||y==1||y==max-1||y==max)) || ((y>=r &&y<=max-r) && (x==0||x==1||x==max-1||x==max))){
-                        // 四周除圆角的边框
-                        src[x][y] = bordercolor;
+                    int i1 = (x + r - max) * (x + r - max);
+                    int i5 = i1 + (r - y) * (r - y);
+                    if (x>(max-r)&&y<r&& i5 >(r-1)*(r-1)){
+                        // 右上圆角
+                        if(i5 >r*r){
+                            src[x][y] = whitecolor;
+                        }else{
+                            src[x][y] = bordercolor;
+                        }
                     } else {
-                        // 图片值
-                        src[x][y] = biTarget.getRGB(x, y);
+                        int i4 = (y + r - max) * (y + r - max);
+                        int i3 = (r - x) * (r - x) + i4;
+                        if (x<r&&y>(max-r)&& i3 >(r-1)*(r-1)){
+                            // 左下圆角
+                            if(i3 >r*r){
+                                src[x][y] = whitecolor;
+                            }else{
+                                src[x][y] = bordercolor;
+                            }
+                        } else if (x>(max-r)&&y>(max-r)&& i1 + i4 >(r-1)*(r-1)){
+                            // 右下圆角
+                            if(i1 + i4 >r*r){
+                                src[x][y] = whitecolor;
+                            }else{
+                                src[x][y] = bordercolor;
+                            }
+                        } else {
+                            if(x >= r && x <= max - r && (y == 0 || y == 1 || y == max - 1) || y >= r && y <= max - r && (x == 0 || x == 1 || x == max - 1)){
+                                // 四周除圆角的边框
+                                src[x][y] = bordercolor;
+                            } else {
+                                // 图片值
+                                src[x][y] = biTarget.getRGB(x, y);
+                            }
+                        }
                     }
                 }
             }
