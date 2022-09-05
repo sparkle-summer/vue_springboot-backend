@@ -115,5 +115,5 @@
   |  github   |  https://github.com/sparkle-summer/vue_springboot-backend.git   |  https://github.com/sparkle-summer/vue_springboot-web.git   |
 
 前端采用的分支为：sparkle-dev
-后端采用的分支为：new-admin-hd
-源码分支为：master，也可以至原地址去拉取，原地址在稳重上方有说明
+后端采用的分支为：sparkle-dev
+源码分支为：master，整合后模板分支为：new-admin-* （前端与后端）也可以至原地址去拉取，原地址在稳重上方有说明
